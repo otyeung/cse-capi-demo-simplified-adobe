@@ -93,6 +93,37 @@ You can test responsiveness using browser developer tools (F12 → Toggle device
 - **Modal.tsx**: Modal component for displaying form submission results
 - **App.css**: Styles including responsive design implementations
 
+## Troubleshooting
+
+### Webpack Deprecation Warnings
+
+You may see webpack deprecation warnings when running the development server. These warnings are related to `onAfterSetupMiddleware` and `onBeforeSetupMiddleware` options in React Scripts 5.x and are expected behavior.
+
+**What causes these warnings?**
+
+- React Scripts 5.x uses an older version of webpack-dev-server
+- The warnings are cosmetic and don't affect application functionality
+- This is a known issue in the React Scripts ecosystem
+
+**Solution implemented:**
+This project includes a warning suppression script (`suppress-warnings.js`) that filters out these specific deprecation warnings while preserving other important warnings and errors.
+
+**Alternative solutions:**
+
+- Migrate to Vite or another modern build tool (recommended for new projects)
+- Wait for React Scripts to be updated (unlikely as it's no longer actively maintained)
+- Eject from Create React App and update webpack manually (not recommended)
+
+### Common Issues
+
+1. **Port 3000 already in use**: Change the port by setting the PORT environment variable:
+
+   ```bash
+   PORT=3001 pnpm start
+   ```
+
+2. **LinkedIn Insight Tag not loading**: Check your browser's network tab to ensure the LinkedIn script is loading properly.
+
 ## Technologies Used
 
 - React with TypeScript
